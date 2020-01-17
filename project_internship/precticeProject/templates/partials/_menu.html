@@ -8,7 +8,7 @@
       <li><a href="#">About</a></li>
       <li><a href="#">Contact Us</a></li>
       {% if user.is_authenticated %}
-      <li><a href="{% url 'show_data' %}">Show All Data</a></li>
+        <li><a href="{% url 'show_data' %}">Show All Data</a></li>
       {% endif %}
 
     </ul>
