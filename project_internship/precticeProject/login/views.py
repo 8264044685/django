@@ -3,6 +3,8 @@ from .form import SignUpForm,ProfileForm
 from django.contrib.auth.models import auth
 from django.core.files.storage import FileSystemStorage
 from django.contrib.auth import login,logout
+from django.contrib import messages
+from django.contrib.auth.models import User
 
 
 
@@ -15,13 +17,17 @@ def signup(request):
         form.help_text = ''
         profileForm = ProfileForm(request.POST,request.FILES)
 
+
         if form.is_valid() and profileForm.is_valid():
             user = form.save()
             profile = profileForm.save(commit=False)
             profile.user = user
             profile.save()
-            # messages.success(request,'You are register can login in now')
+            messages.success(request,'You are register can login in now')
             return redirect('login')
+        else:
+            messages.error(request,'Enter Right data')
+            return redirect('signup')
     else:
         form = ProfileForm()
         profileForm = SignUpForm()
@@ -36,12 +42,16 @@ def login(request):
         user = auth.authenticate(username=username,password=password)
         if user is not None:
             auth.login(request,user)
+            messages.success(request, "You are login successfully")
             return redirect('welcome')
         else:
+            messages.success(request, "Username and password are not match")
             return redirect('login')
     else:
-
-        return render(request,'login/login.html')
+        if request.user.is_authenticated:
+            return redirect('/')
+        else:
+            return render(request,'login/login.html')
 
 def logout_view(request):
     logout(request)

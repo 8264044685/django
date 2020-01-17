@@ -9,11 +9,12 @@
 }
 </style>
 
-
+{% include 'partials/alerts.html' %}
 <div id="cen" style="width:800px; height:auto; background:cyan; margin:0px auto;">
 
 <h2>Sign up Form</h2>
     <form method="post" enctype="multipart/form-data"  id="" action="{% url 'signup' %}">
+
       {% csrf_token %}
         <table>
             {% for field in userProfileForm %}
@@ -37,16 +38,16 @@
                         </td>
                     </tr>
             {% endfor %}
-
-
-
-
               <tr>
                   <td></td>
                   <td>
                     <button type="submit">Sign up</button></tr>
                 </td>
-        </table>
+        </table> 
+
+ <!--        {{ form.as_p }}
+        {{userProfileForm.as_p}}
+        <button type="submit">Sign up</button></tr> -->
     </form>
 
 </div>

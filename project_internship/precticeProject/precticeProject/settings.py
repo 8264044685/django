@@ -136,3 +136,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 # print("BASE dir is :",BASE_DIR)
 
 # print("Static file :",os.path.join(BASE_DIR,'precticeProject/static'))
+
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger'
+}
