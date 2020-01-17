@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<style>
+    table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+}
+</style>
+
+
+<div id="cen" style="width:800px; height:auto; background:cyan; margin:0px auto;">
+
+<h2>Sign up Form</h2>
+    <form method="post" enctype="multipart/form-data"  id="" action="{% url 'signup' %}">
+      {% csrf_token %}
+        <table>
+            {% for field in userProfileForm %}
+                    <tr>
+                        <td>{{ field.label_tag }}</td>  <td>{{ field }}</td>
+                        <td>
+                            {% for error in field.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </td>
+                    </tr>
+            {% endfor %}
+
+              {% for field in form %}
+                    <tr>
+                        <td>{{ field.label_tag }}</td>  <td>{{ field }}</td>
+                        <td>
+                            {% for error in field.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </td>
+                    </tr>
+            {% endfor %}
+
+
+
+
+              <tr>
+                  <td></td>
+                  <td>
+                    <button type="submit">Sign up</button></tr>
+                </td>
+        </table>
+    </form>
+
+</div>
+
+
+{% endblock %}

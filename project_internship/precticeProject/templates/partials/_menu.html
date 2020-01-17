@@ -1,0 +1,28 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'index' %}">Internship</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'index' %}">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact Us</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'show_data' %}">Show All Data</a></li>
+      {% endif %}
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      {% if user.is_authenticated %}
+        <li><a href="{% url 'welcome' %}"> {{user.username}}</a></li>
+
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+      {% else %}
+        <li><a href="{% url 'signup' %}"> Sign Up</a></li>
+        <li><a href="{% url 'login' %}">Login</a></li>
+
+      {% endif %}
+
+    </ul>
+  </div>
+</nav>
