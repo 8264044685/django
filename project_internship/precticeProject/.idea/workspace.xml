@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b11ca35c-692d-42cd-ba33-60aed7ab1324" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/login/password_change.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/login/password_change_done.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/login/password_reset.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/templates/login/password_reset_complete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/login/password_reset_confirm.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/templates/login/password_reset_done.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/login/form.py" afterDir="false" />
@@ -15,6 +11,11 @@
       <change beforePath="$PROJECT_DIR$/precticeProject/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/precticeProject/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login/password_change.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/password_change.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login/password_change_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/password_change_done.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login/password_reset.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/password_reset.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login/password_reset_confirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/password_reset_confirm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/signup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/partials/_menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/_menu.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
