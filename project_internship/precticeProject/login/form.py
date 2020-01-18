@@ -27,3 +27,5 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = userProfile
         fields = ('address','mobile_no','city','state','country','profilePicture')
+
+
