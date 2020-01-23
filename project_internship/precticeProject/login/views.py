@@ -1,10 +1,11 @@
 from django.shortcuts import render,redirect,Http404
 from django.core.mail import send_mail
 from django.conf import settings
+# from .form import SignUpForm
 from .form import SignUpForm,ProfileForm
 from django.contrib.auth.models import auth
 from django.core.files.storage import FileSystemStorage
-from django.contrib.auth import login,logout
+from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.views.decorators.cache import cache_control
@@ -13,29 +14,30 @@ from django.template.loader import render_to_string
 
 
 
-def signup(request):
 
+def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
-        form.help_text = ''
         profileForm = ProfileForm(request.POST,request.FILES)
 
-
         if form.is_valid() and profileForm.is_valid():
+            print("success")
             user = form.save()
             profile = profileForm.save(commit=False)
             profile.user = user
             profile.save()
-            messages.success(request,'You are register can login in now')
+            # messages.success(request,'You are register can login in now')
             return redirect('login')
         else:
-            messages.error(request,'Enter Right data')
-            return redirect('signup')
+            # messages.error(request,'Wrong Input')
+            return render(request,'login/signup.html',{'form':form,'userProfileForm':profileForm})        
     else:
-        form = ProfileForm()
-        profileForm = SignUpForm()
+        profileForm = ProfileForm()
+        form = SignUpForm()
+        # context = {'form': profileForm}
         context = {'form': form,'userProfileForm':profileForm,}
         return render(request,'login/signup.html',context)
+    return render(request,'login/signup.html',{'form':form,'userProfileForm':profileForm})
 
 
 def login(request):
@@ -43,22 +45,49 @@ def login(request):
     if request.method == "POST" :
         username = request.POST['username']
         password = request.POST['password']
-        user = User.objects.get(username=request.POST['username'])
-        request.session['username'] = user.username
+        # user = User.objects.get(username=request.POST['username'])
+
+        # request.session['username'] = user.username
+
+        print('username',username)
+        print('password',password)
         user = auth.authenticate(username=username,password=password)
+        
+        print("user -------")
+        print("name --------",user)
+        
+        
         # print("session username ==>",user)
         if user is not None:
             auth.login(request,user)
             messages.success(request, "You are login successfully")
             return redirect('welcome')
         else:
-            messages.error(request, "Username and password are not match")
+            messages.warning(request, "Username and password are not match")
             return redirect('login')
     else:
         if request.user.is_authenticated:
             return redirect('/')
         else:
             return render(request,'login/login.html')
+
+    # if request.POST:
+
+    #     form = AccountAuthenticationForm(request.POST)
+    #     if form.is_valid():
+    #         email = request.POST['email']
+    #         password = request.POST['password']
+    #         user = authenticate(email=email, password=password)
+
+    #         if user:
+    #             login(request, user)
+    #             return redirect("welcome")
+    # else:
+    #     form = AccountAuthenticationForm()
+
+    
+    # return render(request, 'login/login.html', {'login_form':form})
+
 
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)

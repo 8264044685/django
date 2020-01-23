@@ -32,7 +32,16 @@
 </html>
 
 <script>
-    $(document).ready(function() {
-    $('#example').DataTable();
+     $(document).ready(function() {
+     $('#example').DataTable({
+        columnDefs: [
+            { orderable: false, targets: [1,2,3,4,5,6,7] },
+            { searchable: false, targets: [1,2,3,4,5,6,7] },
+        ]
+     });
 } );
+
+});
+
+
 </script>

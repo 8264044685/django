@@ -12,8 +12,8 @@
                 <th>city</th>
                 <th>State</th>
                 <th>Country</th>
-<!--                <th>Imag/e</th>-->
                 <th>Mobile Number</th>
+                <th>Photos</th>
             </tr>
         </thead>
         <tbody>
@@ -25,10 +25,8 @@
                 <td>{{data.userprofile.city}}</td>
                 <td>{{data.userprofile.state}}</td>
                 <td>{{data.userprofile.country}}</td>
-<!--                    {% if data.userprofile.profilePicture %}-->
-<!--                        <td><img width="50" height="50" src="{{data.userprofile.profilePicture.url}}" /> </td>-->
-<!--                    {% endif %}-->
                 <td>{{data.userprofile.mobile_no}}</td>
+                <td><img width="50" height="50" src="{{data.userprofile.profilePicture.url}}" /> </td>
             </tr>
         {% endfor %}
         </tbody>

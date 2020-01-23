@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="width:700px; height=auto; background-color:cyan; margin:0px auto; padding:20px;">
+  <h2 align="center">Sign up</h2>
+  <form method="post" action="{% url 'signup' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+      <tr>
+        <td>username</td>
+        <td><input type="text" name="username"></td>
+      </tr>
+      <tr>
+        <td>email</td>
+        <td><input type="email" name="username"></td>
+      </tr>
+      <tr>
+        <td>address</td>
+        <td><textarea name="address"></textarea></td>
+      </tr>
+      <tr>
+        <td>mobile no</td>
+        <td><input type="tel" name="mobile_no"></td>
+      </tr>
+      <tr>
+        <td>city</td>
+        <td><input type="text" name="city"></td>
+      </tr>
+      <tr>
+        <td>state</td>
+        <td><input type="text" name="state"></td>
+      </tr>
+      <tr>
+        <td>country</td>
+        <td><input type="text" name="country"></td>
+      </tr>
+      <tr>
+        <td>password</td>
+        <td><input type="password" name="password1"></td>
+      </tr>
+      <tr>
+        <td>confirm password</td>
+        <td><input type="password" name="password2"></td>
+      </tr>
+      <tr>
+        <td colspan="3" align="center"><button type="submit">Sign up</button></td>
+      </tr>
+
+    </table>
+  </form>
+  </div>
+{% endblock %}
+
